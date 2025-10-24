@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class LedigeTider {
         public static void main(String[] args) {
-            System.out.println(" hey ");
+            System.out.println("  ");
 
 
 
