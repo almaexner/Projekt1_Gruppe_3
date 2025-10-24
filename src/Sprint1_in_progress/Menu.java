@@ -3,7 +3,7 @@ package Sprint1_in_progress;
 
 import java.util.Scanner;
 
-public class Switch {
+public class Menu {
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
