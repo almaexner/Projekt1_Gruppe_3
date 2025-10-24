@@ -1,4 +1,5 @@
-import java.util.Scanner;
+package Sprint1_in_progress;
+
 
 public class Kunde {
     // Variabler
@@ -12,4 +13,3 @@ public class Kunde {
         this.kundenr = kundenr;
         this.tlf = tlf;
     }
-
