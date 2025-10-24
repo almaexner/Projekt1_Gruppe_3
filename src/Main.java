@@ -12,4 +12,3 @@ public class Kunde {
         this.kundenr = kundenr;
         this.tlf = tlf;
     }
-
