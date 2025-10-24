@@ -3,3 +3,5 @@ public class Test {
         System.out.println("Hej med dig 2");
     }
 }
+
+// Jeg har tilføjet en kommentar TEST
