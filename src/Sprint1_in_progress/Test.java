@@ -1,4 +1,4 @@
-package Testpackage;
+package Sprint1_in_progress;
 
 public class Test {
     public static void main(String[] args) {
