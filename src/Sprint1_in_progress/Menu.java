@@ -24,8 +24,8 @@ public class Menu {
             switch (userInput) {
                 case "1":
                     System.out.println("Vælg dato");
-                    userInput=keyboard.nextLine();
                     Kalender datoer = new Kalender(5);
+                    userInput=keyboard.nextLine();
                     index = userInput;
                     dato = datoer.getDato(index);
 
