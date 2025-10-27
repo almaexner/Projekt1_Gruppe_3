@@ -29,8 +29,8 @@ public class Booking {
     }
 
     // Metode til at gemme booking-objekt på fil
-    public void bookingFile (String dato, int getBookingNo, String getDato) throws IOException {
-        try (FileWriter booking= new FileWriter("bookingfil.txt", true))
+    public void bookingFile() throws IOException {
+        try (FileWriter booking= new FileWriter("booking_fil.txt", true))
         {
             booking.write("\n"+bookingNo+"; "+ dato);
             System.out.println("Booking er gemt.");

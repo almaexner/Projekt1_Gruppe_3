@@ -55,10 +55,10 @@ public class Kunde {
     }
 
     // Metode til at gemme oprettert kunde objekt på fil
-    public void kundeFil(String kunde) throws IOException {
-        try (FileWriter fil = new FileWriter("kundefil.txt", true))
+    public void kundeFil() throws IOException {
+        try (FileWriter kunde = new FileWriter("kunde_fil.txt", true))
             {
-            fil.write("\n" +navn+"; " + kundenr+"; " + tlf);
+            kunde.write("\n" +navn+"; " + kundenr+"; " + tlf);
             System.out.println("Kunde er gemt i fil.");
             }
             catch (IOException e) {
