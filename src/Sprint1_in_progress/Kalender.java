@@ -10,6 +10,7 @@ public class Kalender {
     int antalDage;
     int day;
     int month;
+    String[] fremskrivning;
     // constructor
      public Kalender(int aD){
          uge = new GregorianCalendar();
@@ -21,12 +22,13 @@ public class Kalender {
                                                                 // antal dage i netop den måned objektet bliver oprettet
          String dato;
          antalDage = aD;
-         String[] fremskrivning = new String[antalDage];
+         fremskrivning = new String[antalDage];
          // Her bliver der udregnet og udskrevet datoer for det angivne antal dage
          for (int i=0; i<antalDage; i++){
+             int n = i+1;
              dato = day+"/"+month;
              fremskrivning[i] = dato;
-             System.out.println("Dette er også en test: "+day+"/"+month);
+             System.out.println("Tast: "+n+" for at vælge: "+day+"/"+month);
              if (day < maxDays){   // Næste dag i samme måned
                  day = day + 1;
              }
@@ -39,6 +41,17 @@ public class Kalender {
                      month = 1;
                  }
              }
+
         }
+    }
+    public String getDato(String dex){
+         int index = Integer.parseInt(dex);
+         index = index-1;
+         return fremskrivning[index];
+    }
+    public Kalender opretdatoer(){
+         antalDage = 4;
+         Kalender datoer = new Kalender(antalDage);
+         return datoer;
     }
 }

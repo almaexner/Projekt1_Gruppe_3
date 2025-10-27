@@ -9,6 +9,8 @@ public class Menu {
         //Variabler
         Scanner keyboard = new Scanner(System.in);
         String userInput;
+        String index;
+        String dato;
 
         //Menu udprint
             System.out.println("Velkommen til Harry's Salon");
@@ -21,7 +23,12 @@ public class Menu {
             //Brugerens input til at navigere i menuen ved brug af switch
             switch (userInput) {
                 case "1":
-                    System.out.println("Opret ny frisørtid");
+                    System.out.println("Vælg dato");
+                    userInput=keyboard.nextLine();
+                    Kalender datoer = new Kalender(5);
+                    index = userInput;
+                    dato = datoer.getDato(index);
+
                     break;
                 case "2":
                     System.out.println("Slet frisørtid");
