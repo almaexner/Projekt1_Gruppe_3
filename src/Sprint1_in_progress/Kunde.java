@@ -53,9 +53,9 @@ public class Kunde {
         System.out.println("Kunde gemt:" + nyKunde);
         return nyKunde;
     }
-    //1.1.1 Metode til at gemme oprettert kunde objekt på fil
+    // Metode til at gemme oprettert kunde objekt på fil
 
-    public void saveToFile(String kunde) throws IOException {
+    public void kundeFil(String kunde) throws IOException {
         try (FileWriter fil = new FileWriter("kunde fil.txt")) {
             fil.write(navn+"; " + kundenr+"; " + tlf);
             System.out.println("Kunde er gemt i fil.");} catch (IOException e) {

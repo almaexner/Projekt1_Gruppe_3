@@ -28,6 +28,7 @@ public class Booking {
         return "Booking nr: " + bookingNo + " Dato: " + dato;
     }
 
+    // Metode til at gemme booking-objekt på fil
     public void bookingFile (String dato, int getBookingNo, String getDato) throws IOException {
         try (FileWriter booking= new FileWriter("booking fil.txt")){
             booking.write(bookingNo+"; "+ dato);
