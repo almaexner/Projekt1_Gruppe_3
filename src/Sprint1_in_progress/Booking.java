@@ -1,5 +1,8 @@
 package Sprint1_in_progress;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Booking {
 
     //Variable
@@ -23,5 +26,13 @@ public class Booking {
 
     public String toString() {
         return "Booking nr: " + bookingNo + " Dato: " + dato;
+    }
+
+    public void bookingFile (String dato, int getBookingNo, String getDato) throws IOException {
+        try (FileWriter booking= new FileWriter("booking fil.txt")){
+            booking.write(bookingNo+"; "+ dato);
+            System.out.println("Booking er gemt.");} catch (IOException e){
+            System.out.println("Booking kan ikke gemmes.");
+        }
     }
 }
