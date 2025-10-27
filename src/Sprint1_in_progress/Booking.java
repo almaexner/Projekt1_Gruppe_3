@@ -55,9 +55,9 @@ public class Booking {
         while (linje!=null) {
             String[] bidder = linje.split(";");
             String tlfFraFil = null;
-            if (bidder.length >= 2) //Tjekker at linjen i filen har 3 bidder.
+            if (bidder.length >= 3) //Tjekker at linjen i filen har 3 bidder.
                 tlfFraFil = bidder[2];
-            if (tlfFraFil.equals(userInput)) { //Sammenligner tlfnr fra kundefil med brugeren input i konsolvinduet.
+            if (tlfFraFil != null && tlfFraFil.equals(userInput)) { //Sammenligner tlfnr fra kundefil med brugeren input i konsolvinduet.
                 match = true;
                 matchedLinje = linje;
                 break; //Vi stopper løkken når vi har fundet et tlf match.
