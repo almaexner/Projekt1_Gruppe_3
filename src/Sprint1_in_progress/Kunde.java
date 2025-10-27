@@ -57,7 +57,7 @@ public class Kunde {
 
     public void saveToFile(String kunde) throws IOException {
         try (FileWriter fil = new FileWriter("kunde fil.txt")) {
-            fil.write(navn+";" + kundenr+";" + tlf);
+            fil.write(navn+"; " + kundenr+"; " + tlf);
             System.out.println("Kunde er gemt i fil.");} catch (IOException e) {
             System.out.println("Kunde kan ikke gemmes.");
         }
