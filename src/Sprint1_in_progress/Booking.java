@@ -30,10 +30,14 @@ public class Booking {
 
     // Metode til at gemme booking-objekt på fil
     public void bookingFile (String dato, int getBookingNo, String getDato) throws IOException {
-        try (FileWriter booking= new FileWriter("booking fil.txt")){
-            booking.write(bookingNo+"; "+ dato);
-            System.out.println("Booking er gemt.");} catch (IOException e){
+        try (FileWriter booking= new FileWriter("bookingfil.txt", true))
+        {
+            booking.write("\n"+bookingNo+"; "+ dato);
+            System.out.println("Booking er gemt.");
+        }
+            catch (IOException e){
             System.out.println("Booking kan ikke gemmes.");
+            e.printStackTrace();
         }
     }
 }
