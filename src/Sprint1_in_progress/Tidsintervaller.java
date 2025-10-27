@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Tidsintervaller {
     String dato;
 
-    public Tidsintervaller(String dato){
-        this.dato = datoer.getDato(index);
-    }
+//    public Tidsintervaller(String dato){
+//        this.dato = .getDato(index);
+//    }
 
     public static Tidsintervaller getLedigeTider(){
         Scanner input = new Scanner(System.in);
