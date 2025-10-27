@@ -8,7 +8,7 @@ public class Menu {
 
         //Variabler
         Scanner keyboard = new Scanner(System.in);
-        String userInput="";
+        String userInput;
 
         //Menu udprint
             System.out.println("Velkommen til Harry's Salon");
