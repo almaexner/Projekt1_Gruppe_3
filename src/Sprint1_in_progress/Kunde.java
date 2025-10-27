@@ -5,6 +5,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Kunde {
+
+    /*Main for testing purposes
+    public static void main(String[] args) throws Exception{
+        Kunde k = new Kunde("Mikkel", 2, 2);
+        k.kundeFil("navn");
+    } */
+
     // Variabler
     private String navn;
     private int kundenr;
