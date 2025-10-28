@@ -17,7 +17,8 @@ public class Menu {
             System.out.println("Oversigt \n"+
                     "1. Opret ny frisørtid \n"+
                     "2. Slet frisørtid \n"+
-                    "3. Tidligere salg");
+                    "3. Lav nyt salg \n"+
+                    "4. Tidligere salg");
             userInput=keyboard.nextLine();
 
             //Brugerens input til at navigere i menuen ved brug af switch
@@ -34,6 +35,9 @@ public class Menu {
                     System.out.println("Slet frisørtid");
                     break;
                 case "3":
+                    System.out.println("Lav nyt salg");
+                    break;
+                case "4":
                     System.out.println("Tidligere salg");
                     break;
                 default:
