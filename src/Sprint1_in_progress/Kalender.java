@@ -3,7 +3,7 @@ package Sprint1_in_progress;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Kalender {
+public class  Kalender {
     // Oprettelse af Gregoriansk kalenderobjekt
     GregorianCalendar uge;
     // Variabler
