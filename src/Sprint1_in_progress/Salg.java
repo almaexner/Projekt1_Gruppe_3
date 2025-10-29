@@ -30,8 +30,6 @@ public class Salg {
             }
         } while (prisForKlip <= 0.0);
 
-        prisForKlip = userInput.nextDouble();
-
         System.out.println("Vil du tilføje produkt til salget? ja/nej: ");
         String brugerSvar = userInput.next().toLowerCase(); //registrerer både store og små bogstaver.
         if (brugerSvar.equals("ja")) {  //if-else statement til at kunne vælge tilkøb af produkter eller ej.
