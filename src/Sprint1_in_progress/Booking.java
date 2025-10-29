@@ -14,10 +14,12 @@ public class Booking {
     static private int noOfBookings = 0;
     private static String navn;   // NY
     private String tlf;
+    private String tid;
 
-    public Booking(String dato, String navn, String tlf) {
+    public Booking(String tid, String dato, String navn, String tlf) {
         noOfBookings++; //Bookingnr tæller op pr. ny bookning.
         bookingNo = noOfBookings;
+        this.tid = tid;
         this.dato = dato;
         this.navn = navn;
         this.tlf = tlf;
@@ -27,7 +29,7 @@ public class Booking {
         return bookingNo;
     }
 
-    public String getDato() {
+    public String getDatoen() {
         return dato;
     }
 
@@ -37,10 +39,15 @@ public class Booking {
     public static Booking nyBooking(String navn, String tlf) throws IOException {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Indtast ønsket dato");
-        new Kalender(5);
+        Kalender k = new Kalender(5);
         String dato = userInput.nextLine();
+        dato = k.getDato(dato);
+        Tidsintervaller t = new Tidsintervaller();
+        String tid = userInput.nextLine();
+        tid = t.getTid(tid);
+
         //oprettelse
-        Booking b = new Booking(dato, navn, tlf);
+        Booking b = new Booking(tid, dato, navn, tlf);
         b.bookingFile();
         System.out.println("Booking oprettet: " + dato);
         return b;
@@ -60,7 +67,7 @@ public class Booking {
         while (linje!=null) {
             String[] bidder = linje.split(";");
 
-            if (bidder.length >= 3) {//Tjekker at linjen i filen har 3 bidder.
+            if (bidder.length >= 4) {//Tjekker at linjen i filen har 3 bidder.
                 String navnFraLinje = bidder[0].trim();
                 String tlfFraFil = bidder[2].trim();
                 if (tlfFraFil.equals(userInput)){
@@ -92,7 +99,7 @@ public class Booking {
         try (FileWriter booking= new FileWriter("booking_fil.txt", true))
         {
             booking.write(
-                    bookingNo + ";" + dato + ";" + navn + ";" + tlf + "\n");
+                    "("+bookingNo+");"+"kl. "+tid+";" + dato + ";" + navn + ";" + tlf + "\n");
             System.out.println("Booking er gemt.");
         }
         catch (IOException e){
