@@ -1,10 +1,11 @@
 package Sprint1_in_progress;
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         //Variabler
         Scanner keyboard = new Scanner(System.in);
@@ -25,10 +26,7 @@ public class Menu {
             switch (userInput) {
                 case "1":
                     System.out.println("Vælg dato");
-                    Kalender datoer = new Kalender(5);
-                    userInput=keyboard.nextLine();
-                    index = userInput;
-                    dato = datoer.getDato(index);
+                    Booking.readFile();
 
                     break;
                 case "2":
