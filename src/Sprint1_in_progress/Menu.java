@@ -25,10 +25,11 @@ public class Menu {
             //Brugerens input til at navigere i menuen ved brug af switch
             switch (userInput) {
                 case "1":
-                    System.out.println("Vælg dato");
+                    //System.out.println("Vælg dato");
                     Booking.readFile();
 
                     break;
+
                 case "2":
                     System.out.println("Slet frisørtid");
                     break;
