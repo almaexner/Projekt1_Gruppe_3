@@ -36,6 +36,8 @@ public class Menu {
                     break;
                 case "3":
                     System.out.println("Lav nyt salg");
+                    Salg s = new Salg();
+                    s.nytSalg();
                     break;
                 case "4":
                     System.out.println("Tidligere salg");
