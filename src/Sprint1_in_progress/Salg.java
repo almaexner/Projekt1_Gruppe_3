@@ -16,7 +16,7 @@ public class Salg {
     //Metode til at lave et nyt salg.
     public void nytSalg() {
         Scanner userInput = new Scanner(System.in);
-        købsDato = LocalDate.now(); //Gemmer købet for dagsdato.
+        købsDato = LocalDate.now(); //laver købet for dagsdato.
 
         //Tilføjer pris for klipning.
         System.out.println("Indtast pris for klipning: ");
