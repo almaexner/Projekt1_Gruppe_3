@@ -1,5 +1,7 @@
 package Sprint1_in_progress;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -16,11 +18,16 @@ public class Kunde {
     private String navn;
     private int kundenr;
     private int tlf;
+    private String kreditkunde;
+    double beløb;
+
     // Constructor
-    public Kunde(String navn, int kundenr, int tlf) {
+    public Kunde(String navn, int kundenr, int tlf, String kreditkunde) {
         this.navn = navn;
         this.kundenr = kundenr;
         this.tlf = tlf;
+        this.kreditkunde= kreditkunde;
+        this.beløb=beløb;
     }
     // get+return
     public String getNavn() {
@@ -56,7 +63,9 @@ public class Kunde {
         int kundenr = input.nextInt();
         System.out.print("Indtast tlfNr:");
         int tlf = input.nextInt();
-        Kunde nyKunde = new Kunde(navn, kundenr, tlf);
+        System.out.print("Indtast kredit: ");
+        String kreditkunde="0";
+        Kunde nyKunde = new Kunde(navn, kundenr, tlf, kreditkunde);
         System.out.println("Kunde gemt:" + nyKunde);
         return nyKunde;
     }
@@ -65,7 +74,7 @@ public class Kunde {
     public void kundeFil() throws IOException {
         try (FileWriter kunde = new FileWriter("kunde_fil.txt", true))
             {
-            kunde.write("\n" +navn+"; " + kundenr+"; " + tlf);
+            kunde.write("\n" +navn+"; " + kundenr+"; " + tlf +"; "+ "0");
             System.out.println("Kunde er gemt i fil.");
             }
             catch (IOException e) {
@@ -73,4 +82,24 @@ public class Kunde {
             e.printStackTrace();
         }
     }
+
+    // når man tjekker index 3 skal man se om kunde har kredit eller nej og hvor meget
+   //hvis kunde har kredit lav metode til at ændre kredit
+
+    public void kreditKunde() throws IOException {
+        FileReader kunde_fil = new FileReader("src//kunde_fil.txt");
+        BufferedReader ind = new BufferedReader(kunde_fil);
+        String linje = ind.readLine();
+        while (linje!=null){
+            String [] bidder= linje.split(";");
+            Kunde k= Kunde.opretKunde();
+            k.kreditkunde=bidder[3];
+            linje=ind.readLine();
+        }
+        ind.close();
+
+        kreditkunde=kreditkunde+beløb;
+        System.out.println("Kunde " +navn +" har "+ kreditkunde +" kredit.");
+    }
+
 }
