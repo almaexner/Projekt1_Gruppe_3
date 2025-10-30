@@ -59,6 +59,6 @@ public class Menu {
             }
 
         }
-        while (!userInput.equals("5"));
+        while (!userInput.equals("5")); //Programmet kører så længe userInput ikke er 5.
     }
 }
