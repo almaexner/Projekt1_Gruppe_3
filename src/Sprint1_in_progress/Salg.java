@@ -57,9 +57,9 @@ public class Salg {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
+    // main til test
+    /*public static void main(String[] args) {
         Salg s = new Salg();
         s.nytSalg();
-    }
+    }*/
 }

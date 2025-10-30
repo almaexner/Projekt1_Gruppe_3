@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tidsintervaller {
-    String dato;
     String ledigTid;
     int antalTider = 7;
     String[] timelist = {"10","11","12","13","14","15","16","17","18"};

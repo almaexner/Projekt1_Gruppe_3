@@ -111,9 +111,9 @@ public class Booking {
         while (linje!=null) {
             String[] bidder = linje.split(";");
 
-            if (bidder.length >= 5) {//Tjekker at linjen i filen har 5 bidder.
+            if (bidder.length >= 4 ) {//Tjekker at linjen i filen har 5 bidder.
                 String navnFraLinje = bidder[0].trim();
-                String tlfFraFil = bidder[4].trim();
+                String tlfFraFil = bidder[2].trim();
                 if (tlfFraFil.equals(userInput)){
                     navnFraFil = navnFraLinje; //Sammenligner fra kundefil med brugeren input i konsolvinduet.
                     match = true;
@@ -150,5 +150,55 @@ public class Booking {
             System.out.println("Booking kan ikke gemmes.");
             e.printStackTrace();
         }
+    }
+    // Metode til at slette en bestemt bookning i booking_fil.txt
+    public static void sletBookning() throws IOException{
+        // Opretning af objekter der skal bruges
+        ArrayList<String> bookning = new ArrayList<>();
+        FileReader bookingFil = new FileReader("booking_fil.txt");
+        BufferedReader ind = new BufferedReader(bookingFil);
+        Scanner keyboard = new Scanner(System.in);
+        String userInput = keyboard.nextLine();
+        String linje = ind.readLine();
+        while(linje!=null){     // læser filen igennem, og tilføjer hver linje i en ArrayList
+            bookning.add(linje);
+            linje=ind.readLine();
+
+        }
+        int size = bookning.size(); // Køres så mange gange som der er pladser i listen
+        System.out.println(bookning.get(2));
+        FileWriter nyBookingFil = new FileWriter("booking_fil.txt", false);
+        for (int i=0; i<size; i++){
+            // finder linjen for det angivne tlfnummer, og fjerner den linje fra listen
+            linje = bookning.get(i);
+            String[] bidder = linje.split(";");
+            String tjektlf = bidder[4].trim();
+            if (tjektlf.equals(userInput)){
+                bookning.remove(i);
+                break;
+            }
+        }
+        size = bookning.size();
+
+        try{
+            nyBookingFil.write("");
+        }
+        catch (IOException e) {
+            System.out.println("Booking kan ikke slettes."); // sletter alt på filen
+            e.printStackTrace();
+        }
+        for(int t=0; t<size; t++){
+            try (FileWriter nyBookingFil2= new FileWriter("booking_fil.txt", true)) //
+            {   // skriver de resterende linjer fra listen tilbage i filen
+                linje = bookning.get(t);
+                nyBookingFil2.write(linje+"\n");
+            }
+            catch (IOException e){
+                System.out.println("Booking kan ikke slettes.");
+                e.printStackTrace();
+            }
+
+        }
+
     }
 }
