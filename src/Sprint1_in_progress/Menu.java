@@ -31,7 +31,8 @@ public class Menu {
                     break;
 
                 case "2":
-                    System.out.println("Slet frisørtid");
+                    System.out.println("Indtast tlfnummer");
+                    Booking.sletBookning();
                     break;
                 case "3":
                     System.out.println("Lav nyt salg");
@@ -39,7 +40,8 @@ public class Menu {
                     s.nytSalg();
                     break;
                 case "4":
-                    System.out.println("Tidligere salg");
+                    System.out.println("");
+                    Salg.beløb();
                     break;
                 default:
                     System.out.println("Du har valgt et ugyldigt input.");

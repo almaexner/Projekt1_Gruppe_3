@@ -15,7 +15,7 @@ public class TideligereSalgOgTider {
         Scanner keyboard = new Scanner(System.in);
         while (true) {
 
-            FileReader fil = new FileReader("src/SalonProject/Booking.txt");
+            FileReader fil = new FileReader("Salgs_fil.txt");
             BufferedReader ind = new BufferedReader(fil);
             ArrayList<String> list = new ArrayList<>();
             System.out.println("Søg efter dato");
@@ -33,7 +33,7 @@ public class TideligereSalgOgTider {
                     if (dato.contains(userInput)) { //Sammenligner dato fra Bookingfilen med brugeren input i konsolvinduet.
                         match = true;
                         matchedLinje = linje;
-                      //  break; //Vi stopper løkken når vi har fundet dato match.
+                        //  break; //Vi stopper løkken når vi har fundet dato match.
 
                     }
                     linje = ind.readLine(); //Den stopper med at læse filen.
@@ -55,29 +55,10 @@ public class TideligereSalgOgTider {
             }
         }
 
-        beløb();
-        System.out.println("Den valgte datos salg");
 
     }
+}
 
-    static void beløb() throws IOException {//Dordi det er et tal
-        FileReader fil = new FileReader("src/SalonProject/SalgTest.txt");
-        BufferedReader ind = new BufferedReader(fil);
-        ArrayList<Integer> list = new ArrayList<>();
-
-        String linje = ind.readLine();
-        //while(ind.readLine() != null){
-            String[] bidder = linje.split(";");
-            String beløb =bidder [1];
-
-            System.out.println(beløb);
-
-
-
-        }
-
-
-    }
 
 
 
