@@ -3,7 +3,7 @@ package Sprint1_in_progress;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class  Kalender {
+public class  Kalender  {
     // Oprettelse af Gregoriansk kalenderobjekt
     GregorianCalendar uge;
     // Variabler
@@ -12,7 +12,7 @@ public class  Kalender {
     int month;
     String[] fremskrivning;
     // constructor
-     public Kalender(int aD){
+     public Kalender(int aD) {
          uge = new GregorianCalendar();
          month = uge.get(Calendar.MONTH);       //  Her defineres variablen for den nuværende måned plus 1,
          month = month+1;                           //  da der ellers tælles fra nul
@@ -41,7 +41,6 @@ public class  Kalender {
                      month = 1;
                  }
              }
-
         }
     }
     public String getDato(String dex){
