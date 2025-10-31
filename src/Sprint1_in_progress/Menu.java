@@ -52,13 +52,13 @@ public class Menu {
                         System.out.println("Forkert adgangskode.");
                     }
                 case "5":
-                    System.out.println("Programmet er afsluttet.");
+                    System.out.println("");
                     break;
                 default:
                     System.out.println("Du har valgt et ugyldigt input.");
             }
 
         }
-        while (!userInput.equals("5"));
+        while (!userInput.equals("5")); //Programmet kører så længe userInput ikke er 5.
     }
 }
