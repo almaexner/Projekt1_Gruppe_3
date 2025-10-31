@@ -111,7 +111,7 @@ public class Kunde {
             //String kredit = bidder[3];
             if (tjektlf.equals(userInput)){
                 System.out.println("Kunden med dette telefonnummer "+tjektlf+" har "+bidder[3].trim()+" kredit");
-                System.out.println("Indtast kreditbeløb der skal tilføjes ");
+                System.out.println("Indtast kreditbeløb der skal ændres: ");
                 Scanner beløbscanner=new Scanner(System.in);
                 double beløb=beløbscanner.nextDouble();
                 double kreditValue = Double.parseDouble(bidder[3]);
