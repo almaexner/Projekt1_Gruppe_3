@@ -1,6 +1,9 @@
-package Sprint1_in_progress;
+package Sprint1_in_progress;//package Sprint1_in_progress;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -75,49 +78,75 @@ public class Kunde {
         }
     }
 
-    //metode til kreditkunde
-    public void kreditKunde() throws IOException {
-        Scanner tlfScanner= new Scanner(System.in);     //scan
-        System.out.println("Indtast kunde telefon nr: ");
-        String userInput=tlfScanner.nextLine();
-        String tlf=userInput;
-        String tlfFraFil;
-        boolean match=false;
-        Scanner keyboard=new Scanner(System.in);
+    // når man tjekker index 3 skal man se om kunde har kredit eller nej og hvor meget
+   //hvis kunde har kredit lav metode til at ændre kredit
+    // scan tlf nr for at finde kunde og deres kredit
 
-        FileReader kunde_fil = new FileReader("src//kunde_fil.txt");    //åben og læs kundefil
-        BufferedReader ind = new BufferedReader(kunde_fil);
+    // når man tjekker index 3 skal man se om kunde har kredit eller nej og hvor meget
+//hvis kunde har kredit lav metode til at ændre kredit
+    // scan tlf nr for at finde kunde og deres kredit
+
+    public static void getKredit(){
+
+    }
+
+    public static void nyKredit() throws IOException{
+        // Opretning af objekter der skal bruges
+        System.out.println("Indtast tlfnr.");
+        ArrayList<String> kunder = new ArrayList<>();
+        FileReader KundeFil = new FileReader("Kunde_fil.txt");
+        BufferedReader ind = new BufferedReader(KundeFil);
+        Scanner keyboard = new Scanner(System.in);
+        String userInput = keyboard.nextLine();
         String linje = ind.readLine();
-        while (linje!=null){
+        while(linje!=null){     // læser filen igennem, og tilføjer hver linje i en ArrayList
+            kunder.add(linje);
+            linje=ind.readLine();
 
-            String [] bidder= linje.split(";"); //hver linje er opdelt med ";"
-            String tlfFraFilLinje=bidder[2];
-            String tjekKredit=bidder[3];
-            if(tlfFraFilLinje.equals(userInput))    //tjeck om intastetet tlf matcher kunde tlf
-            {
-                tlfFraFil = tlfFraFilLinje;
-                match = true;
-                System.out.println("Kunde med dette telefonnummer " +tlf +" har "+ kreditkunde +" kredit.");
-                System.out.println("Intast kreditbeløb der skal tilføjes ");
-                Scanner beløbScanner=new Scanner(System.in);
-                beløb=beløbScanner.nextDouble();
-                kreditkunde=kreditkunde+beløb;
-                System.out.println("Ny kredit er "+ kreditkunde);
-                break;     //stopper lokken
-             //   linje.add(linje); //jeg skal gemme filen
-              //  linje=ind.readLine();
+        }
+        int size = kunder.size(); // Køres så mange gange som der er pladser i listen
+        FileWriter nyKundeFil = new FileWriter("kunde_fil.txt", false);
+        for (int i=0; i<size; i++){
+            // finder linjen for det angivne tlfnummer, og fjerner den linje fra listen
+            linje = kunder.get(i);
+            String[] bidder = linje.split(";");
+            String tjektlf = bidder[2].trim();
+            //String kredit = bidder[3];
+            if (tjektlf.equals(userInput)){
+                System.out.println("Kunden med dette telefonnummer "+tjektlf+" har "+bidder[3].trim()+" kredit");
+                System.out.println("Indtast kreditbeløb der skal tilføjes ");
+                Scanner beløbscanner=new Scanner(System.in);
+                double beløb=beløbscanner.nextDouble();
+                double kreditValue = Double.parseDouble(bidder[3]);
+                double kValue = beløb+kreditValue;
+                String nyKredit = bidder[0]+";"+bidder[1]+";"+bidder[2]+";"+kValue;
+                kunder.remove(i);
+                kunder.add(nyKredit);
+                break;
             }
         }
-        ind.close();
+        size = kunder.size();
 
-        File KreditKunde= new File("src//kunde_fil.txt");   //override kundefil
-        String nylinje=navn+";"+kundenr+";"+tlf+kreditkunde;
         try{
-            FileWriter Kunde2=new FileWriter(KreditKunde,false);
-            Kunde2.write(nylinje);
-            Kunde2.close();
-        } catch (IOException e) {
+            nyKundeFil.write("");
+        }
+        catch (IOException e) {
+            System.out.println("error"); // sletter alt på filen
             e.printStackTrace();
         }
+        for(int t=0; t<size; t++){
+            try (FileWriter nyBookingFil2= new FileWriter("Kunde_fil.txt", true)) //
+            {   // skriver de resterende linjer fra listen tilbage i filen
+                linje = kunder.get(t);
+                nyBookingFil2.write(linje+"\n");
+            }
+            catch (IOException e){
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+
+        }
+
     }
+
 }
