@@ -75,31 +75,25 @@ public class Kunde {
         }
     }
 
-    // når man tjekker index 3 skal man se om kunde har kredit eller nej og hvor meget
-   //hvis kunde har kredit lav metode til at ændre kredit
-    // scan tlf nr for at finde kunde og deres kredit
-
+    //metode til kreditkunde
     public void kreditKunde() throws IOException {
-        Scanner tlfScanner= new Scanner(System.in);
+        Scanner tlfScanner= new Scanner(System.in);     //scan
         System.out.println("Indtast kunde telefon nr: ");
         String userInput=tlfScanner.nextLine();
         String tlf=userInput;
         String tlfFraFil;
         boolean match=false;
-        boolean tilføjKredit=true;
         Scanner keyboard=new Scanner(System.in);
-        String answer;
-        answer=keyboard.next();
 
-        FileReader kunde_fil = new FileReader("Kunde_fil.txt");
+        FileReader kunde_fil = new FileReader("src//kunde_fil.txt");    //åben og læs kundefil
         BufferedReader ind = new BufferedReader(kunde_fil);
         String linje = ind.readLine();
         while (linje!=null){
 
-            String [] bidder= linje.split(";");
+            String [] bidder= linje.split(";"); //hver linje er opdelt med ";"
             String tlfFraFilLinje=bidder[2];
             String tjekKredit=bidder[3];
-            if(tlfFraFilLinje.equals(userInput))
+            if(tlfFraFilLinje.equals(userInput))    //tjeck om intastetet tlf matcher kunde tlf
             {
                 tlfFraFil = tlfFraFilLinje;
                 match = true;
@@ -109,15 +103,14 @@ public class Kunde {
                 beløb=beløbScanner.nextDouble();
                 kreditkunde=kreditkunde+beløb;
                 System.out.println("Ny kredit er "+ kreditkunde);
-                break;
-               /* ved ikke hvorfor kan jeg ikke gemme filen
-               linje.add(linje);
-                linje = ind.readLine();*/
+                break;     //stopper lokken
+             //   linje.add(linje); //jeg skal gemme filen
+              //  linje=ind.readLine();
             }
         }
         ind.close();
 
-        File KreditKunde= new File("Kunde_fil.txt");
+        File KreditKunde= new File("src//kunde_fil.txt");   //override kundefil
         String nylinje=navn+";"+kundenr+";"+tlf+kreditkunde;
         try{
             FileWriter Kunde2=new FileWriter(KreditKunde,false);
@@ -126,11 +119,5 @@ public class Kunde {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        Kunde k = new Kunde("", 0, 0, "");
-        k.kreditKunde();
-
     }
 }
