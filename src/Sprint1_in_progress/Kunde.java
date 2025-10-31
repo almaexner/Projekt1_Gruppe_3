@@ -1,18 +1,10 @@
 package Sprint1_in_progress;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Kunde {
-
-    /*Main for testing purposes
-    public static void main(String[] args) throws Exception{
-        Kunde k = new Kunde("Mikkel", 2, 2);
-        k.kundeFil("navn");
-    } */
 
     // Variabler
     private String navn;
@@ -85,21 +77,54 @@ public class Kunde {
 
     // når man tjekker index 3 skal man se om kunde har kredit eller nej og hvor meget
    //hvis kunde har kredit lav metode til at ændre kredit
+    // scan tlf nr for at finde kunde og deres kredit
 
     public void kreditKunde() throws IOException {
+        Scanner tlfScanner= new Scanner(System.in);
+        System.out.println("Indtast kunde telefon nr: ");
+        String userInput=tlfScanner.nextLine();
+        String tlf=userInput;
+        String tlfFraFil;
+        boolean match=false;
+        boolean tilføjKredit=true;
+        Scanner keyboard=new Scanner(System.in);
+        String answer;
+        answer=keyboard.next();
+
         FileReader kunde_fil = new FileReader("src//kunde_fil.txt");
         BufferedReader ind = new BufferedReader(kunde_fil);
         String linje = ind.readLine();
         while (linje!=null){
+
             String [] bidder= linje.split(";");
-            Kunde k= Kunde.opretKunde();
-            k.kreditkunde=bidder[3];
-            linje=ind.readLine();
+            String tlfFraFilLinje=bidder[2];
+            String tjekKredit=bidder[3];
+            if(tlfFraFilLinje.equals(userInput))
+            {
+                tlfFraFil = tlfFraFilLinje;
+                match = true;
+                System.out.println("Kunde med dette telefonnummer " +tlf +" har "+ kreditkunde +" kredit.");
+                System.out.println("Intast kreditbeløb der skal tilføjes ");
+                Scanner beløbScanner=new Scanner(System.in);
+                beløb=beløbScanner.nextDouble();
+                kreditkunde=kreditkunde+beløb;
+                System.out.println("Ny kredit er "+ kreditkunde);
+                break;
+               /* ved ikke hvorfor kan jeg ikke gemme filen
+               linje.add(linje);
+                linje=ind.readLine();*/
+            }
         }
         ind.close();
 
-        kreditkunde=kreditkunde+beløb;
-        System.out.println("Kunde " +navn +" har "+ kreditkunde +" kredit.");
+        File KreditKunde= new File("src//kunde_fil.txt");
+        String nylinje=navn+";"+kundenr+";"+tlf+kreditkunde;
+        try{
+            FileWriter Kunde2=new FileWriter(KreditKunde,false);
+            Kunde2.write(nylinje);
+            Kunde2.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
 }
