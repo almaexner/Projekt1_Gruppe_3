@@ -50,7 +50,7 @@ public class Kunde {
                 "TelefonNr: " + tlf;
     }
     // metode for kundeoprettelse
-    public static Kunde opretKunde() {
+    public static Kunde opretKunde() {   //ny kunde bliver gemt i kundefil med navn;kundenr;tlfnr;kreditværdi
         Scanner input = new Scanner(System.in);
         System.out.print("Indtast KundeNavn:");
         String navn = input.nextLine();

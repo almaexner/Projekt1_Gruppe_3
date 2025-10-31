@@ -39,7 +39,7 @@ public class Booking {
         return "Booking nr: " + bookingNo + " Dato: " + dato;
     }
     public static Booking nyBooking(String navn, String tlf) throws IOException {
-        Scanner userInput = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in); //Booking bliver gemt i fil med bookingnr;tidspunkt;dato;navn;tlf
         System.out.println("Indtast ønsket dato");
         Kalender k = new Kalender(5);
         String dato = userInput.nextLine();
