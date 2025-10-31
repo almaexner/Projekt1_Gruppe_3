@@ -21,8 +21,9 @@ public class Menu {
                     "1. Opret ny frisørtid \n" +
                     "2. Slet frisørtid \n" +
                     "3. Lav nyt salg \n" +
-                    "4. Tidligere salg\n" +
-                    "5. Afslut programmet");
+                    "4. Kredit \n" +
+                    "5. Tidligere salg\n" +
+                    "6. Afslut programmet");
             userInput = keyboard.nextLine();
 
             //Brugerens input til at navigere i menuen ved brug af switch
@@ -43,6 +44,9 @@ public class Menu {
                     s.nytSalg();
                     break;
                 case "4":
+                    Kunde.nyKredit();
+                    break;
+                case "5":
                     System.out.println("Indtast adgangskode");
                     String userPassword = keyboard.nextLine();
                     if (password.equals(userPassword)) {
@@ -51,8 +55,9 @@ public class Menu {
                     } else {
                         System.out.println("Forkert adgangskode.");
                     }
-                case "5":
-                    System.out.println("");
+                    break;
+                case "6":
+                    System.out.println("Programmet afsluttes.");
                     break;
                 default:
                     System.out.println("Du har valgt et ugyldigt input.");

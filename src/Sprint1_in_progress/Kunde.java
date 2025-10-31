@@ -69,7 +69,7 @@ public class Kunde {
     public void kundeFil() throws IOException {
         try (FileWriter kunde = new FileWriter("kunde_fil.txt", true))
             {
-            kunde.write("\n" +navn+"; " + kundenr+"; " + tlf +"; "+ "0");
+            kunde.write("\n" +navn+";" + kundenr+";" + tlf +";"+ "0");
             System.out.println("Kunde er gemt i fil.");
             }
             catch (IOException e) {
@@ -86,9 +86,6 @@ public class Kunde {
 //hvis kunde har kredit lav metode til at ændre kredit
     // scan tlf nr for at finde kunde og deres kredit
 
-    public static void getKredit(){
-
-    }
 
     public static void nyKredit() throws IOException{
         // Opretning af objekter der skal bruges
