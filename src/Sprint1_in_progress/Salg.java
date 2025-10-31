@@ -48,7 +48,6 @@ public class Salg {
 
         saveToFile(); //Gemmer salget i salgfil.
         System.out.println("Salget er nu gemt.");
-       // userInput.close();
     }
 
     //Metode til at lave en salgsfil, vi kan gemme nye salg i.
