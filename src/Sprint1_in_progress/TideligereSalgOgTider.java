@@ -28,12 +28,12 @@ public class TideligereSalgOgTider {
             String linje = ind.readLine();
             while (linje != null) {
                 String[] bidder = linje.split(";");
-                if (bidder.length >= 3) { //Tjekker at linjen i filen har 2 bidder.
+                if (bidder.length >= 3) { //Tjekker at linjen i filen har 3 bidder.
                     String dato = bidder[1];
                     if (dato.contains(userInput)) { //Sammenligner dato fra Bookingfilen med brugeren input i konsolvinduet.
                         match = true;
                         matchedLinje = linje;
-                        //  break; //Vi stopper løkken når vi har fundet dato match.
+
 
                     }
                     linje = ind.readLine(); //Den stopper med at læse filen.
