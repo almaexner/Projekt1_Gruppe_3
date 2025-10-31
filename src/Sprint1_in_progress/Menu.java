@@ -49,7 +49,7 @@ public class Menu {
                 case "5":
                     System.out.println("Indtast adgangskode");
                     String userPassword = keyboard.nextLine();
-                    if (password.equals(userPassword)) {
+                    if (password.equals(userPassword)) { //If-else statement med password, for at programmet kan udføre metoden.
                         System.out.println("Tidligere salg");
                         Salg.beløb();
                     } else {
