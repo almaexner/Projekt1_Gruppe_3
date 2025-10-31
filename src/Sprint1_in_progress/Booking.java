@@ -56,7 +56,7 @@ public class Booking {
         System.out.println("Booking oprettet: " + dato);
         return b;
     }
-    //
+
     public static String gennemkigFil(String dex1, String dex2, String dexName) throws IOException {
         int indexDato = Integer.parseInt(dex1); // index 2
         int indexTid = Integer.parseInt(dex2);  // index 1
@@ -82,7 +82,6 @@ public class Booking {
                 String tjekindex2 = bidder[indexTid].trim();
                 ledigeTider.remove(tjekindex2); //fjerner fra list
             }
-
             linje = ind.readLine();
         }
         ind.close();
@@ -93,7 +92,6 @@ public class Booking {
             tast = tast+1;
             System.out.println("Tast "+tast+" for at vælge en ledig tid "+tid);
         }
-
         return "OK";
     }
     public static void readFile () throws IOException{ //Metode til at læse fil igennem for at sammenligne brugerens input for tlf.nr for at se om kunden er oprettet eller ej.
@@ -110,7 +108,6 @@ public class Booking {
 
         while (linje!=null) {
             String[] bidder = linje.split(";");
-
             if (bidder.length >= 4 ) {//Tjekker at linjen i filen har 5 bidder.
                 String navnFraLinje = bidder[0].trim();
                 String tlfFraFil = bidder[2].trim();
@@ -123,7 +120,6 @@ public class Booking {
             }
             linje=ind.readLine(); //Den stopper med at læse filen.
         }
-
         ind.close();
 
         if(match) {
@@ -198,7 +194,6 @@ public class Booking {
             }
 
         }
-
     }
 
 }

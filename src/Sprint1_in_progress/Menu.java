@@ -1,12 +1,10 @@
 package Sprint1_in_progress;
 
-
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) throws IOException {
-
+    public static void main(String[] args) throws IOException{
         //Variabler
         Scanner keyboard = new Scanner(System.in);
         String userInput;
@@ -31,9 +29,7 @@ public class Menu {
                 case "1":
                     //System.out.println("Vælg dato");
                     Booking.readFile();
-
                     break;
-
                 case "2":
                     System.out.println("Indtast tlfnummer");
                     Booking.sletBookning();
@@ -62,8 +58,8 @@ public class Menu {
                 default:
                     System.out.println("Du har valgt et ugyldigt input.");
             }
-
         }
-        while (!userInput.equals("6")); //Programmet kører så længe userInput ikke er 6.
-    }
+        while (!userInput.equals("6")); //  Programmet kører så længe userInput ikke er 6.
+    }                                   //  Hvis der i forbindelse af indtastning af
+                                        //  en værdi til f.eks pris tastes 6, kan det også stoppe programmet
 }

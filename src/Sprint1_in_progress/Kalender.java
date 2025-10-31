@@ -48,9 +48,4 @@ public class  Kalender  {
          index = index-1;
          return fremskrivning[index];
     }
-    public Kalender opretdatoer(){
-         antalDage = 4;
-         Kalender datoer = new Kalender(antalDage);
-         return datoer;
-    }
 }

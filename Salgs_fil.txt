@@ -1,3 +1,5 @@
 Dato: 2025-10-29; Beløb 120.0 DKK.
-
+Dato: 2025-10-31; Beløb 300.0 DKK.
+Dato: 2025-10-31; Beløb 350.0 DKK.
 Dato: 2025-10-31; Beløb 400.0 DKK.
+Dato: 2025-10-31; Beløb 250.0 DKK.

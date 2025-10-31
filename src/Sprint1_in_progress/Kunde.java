@@ -77,16 +77,8 @@ public class Kunde {
             e.printStackTrace();
         }
     }
-
-    // når man tjekker index 3 skal man se om kunde har kredit eller nej og hvor meget
-   //hvis kunde har kredit lav metode til at ændre kredit
-    // scan tlf nr for at finde kunde og deres kredit
-
-    // når man tjekker index 3 skal man se om kunde har kredit eller nej og hvor meget
-//hvis kunde har kredit lav metode til at ændre kredit
-    // scan tlf nr for at finde kunde og deres kredit
-
-
+    // Metode der kan finde bestemte kunder og som kan modtage værdier til at
+    // ændre kundens kreditværdi
     public static void nyKredit() throws IOException{
         // Opretning af objekter der skal bruges
         System.out.println("Indtast tlfnr.");
@@ -99,7 +91,6 @@ public class Kunde {
         while(linje!=null){     // læser filen igennem, og tilføjer hver linje i en ArrayList
             kunder.add(linje);
             linje=ind.readLine();
-
         }
         int size = kunder.size(); // Køres så mange gange som der er pladser i listen
         FileWriter nyKundeFil = new FileWriter("kunde_fil.txt", false);
@@ -141,9 +132,7 @@ public class Kunde {
                 System.out.println("Error");
                 e.printStackTrace();
             }
-
         }
-
     }
 
 }
