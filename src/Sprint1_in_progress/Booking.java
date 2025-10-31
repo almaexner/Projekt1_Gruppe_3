@@ -166,7 +166,6 @@ public class Booking {
 
         }
         int size = bookning.size(); // Køres så mange gange som der er pladser i listen
-        System.out.println(bookning.get(2));
         FileWriter nyBookingFil = new FileWriter("booking_fil.txt", false);
         for (int i=0; i<size; i++){
             // finder linjen for det angivne tlfnummer, og fjerner den linje fra listen

@@ -91,7 +91,7 @@ public class Kunde {
         String answer;
         answer=keyboard.next();
 
-        FileReader kunde_fil = new FileReader("src//kunde_fil.txt");
+        FileReader kunde_fil = new FileReader("Kunde_fil.txt");
         BufferedReader ind = new BufferedReader(kunde_fil);
         String linje = ind.readLine();
         while (linje!=null){
@@ -112,12 +112,12 @@ public class Kunde {
                 break;
                /* ved ikke hvorfor kan jeg ikke gemme filen
                linje.add(linje);
-                linje=ind.readLine();*/
+                linje = ind.readLine();*/
             }
         }
         ind.close();
 
-        File KreditKunde= new File("src//kunde_fil.txt");
+        File KreditKunde= new File("Kunde_fil.txt");
         String nylinje=navn+";"+kundenr+";"+tlf+kreditkunde;
         try{
             FileWriter Kunde2=new FileWriter(KreditKunde,false);
@@ -126,5 +126,11 @@ public class Kunde {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        Kunde k = new Kunde("", 0, 0, "");
+        k.kreditKunde();
+
     }
 }
